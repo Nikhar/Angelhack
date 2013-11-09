@@ -42,9 +42,9 @@ if (isset($_GET["title"])) {
 			$response["success"] = 1;
 
 			// user node
-			$response["event"] = array();
+			$response["cause"] = array();
 
-			array_push($response["event"], $product);
+			array_push($response["cause"], $product);
 
 			// echoing JSON response
 			echo json_encode($response);
