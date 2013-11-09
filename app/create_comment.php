@@ -12,16 +12,10 @@ $response = array();
 if (isset($_POST['cause_id'])) {
  
     $cause_id = $_POST['cause_id'];
-    $description="";	
-   if (isset($_POST['description'])) $description = $_POST['description'];
-    $name="";
-   if (isset($_POST['name'])) $name = $_POST['name'];
-    $time="";
-    if (isset($_POST['time']))$time = $_POST['time'];
-    $date="";
-   if (isset($_POST['date'])) $date = $_POST['date'];
-    $venue="";
-   if (isset($_POST['venue'])) $venue = $_POST['venue'];
+    $comment="";	
+   if (isset($_POST['comment'])) $comment = $_POST['comment'];
+    $username="anonymous";
+   if (isset($_POST['username'])) $username = $_POST['username'];
  
     // include db connect class
     require_once __DIR__ . '/db_connect.php';
@@ -30,7 +24,7 @@ if (isset($_POST['cause_id'])) {
     $db = new DB_CONNECT();
  
     // mysql inserting a new row
-    $result = mysql_query("INSERT INTO `events` (`event_id`, `cause_id`, `name`, `description`, `venue`, `date`, `time`) VALUES (NULL, '$cause_id', '$name', '$description', '$venue', '$date','$time');");
+    $result = mysql_query("INSERT INTO `comments` (`id`, `cause_id`, `comment`, `timestamp`, `username`) VALUES (NULL, '$cause_id', '$comment', CURRENT_TIMESTAMP, '$username');");
  
     // check if row inserted or not
     if ($result) {

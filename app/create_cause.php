@@ -12,12 +12,18 @@ $response = array();
 if (isset($_POST['title'])) {
  
     $title = $_POST['title'];
-    $description = $_POST['description'];
-    $image = $_POST['image'];
-    $city = $_POST['city'];
-    $tag_1 = $_POST['tag_1'];
-    $tag_2 = $_POST['tag_2'];
-    $tag_3 = $_POST['tag_3'];
+    $description="";
+    if (isset($_POST['description'])) $description = $_POST['description'];
+    $image="";
+    if (isset($_POST['image'])) $image = $_POST['image'];
+    $city="";
+    if (isset($_POST['city'])) $city = $_POST['city'];
+    $tag_1="";
+    if (isset($_POST['tag_1'])) $tag_1 = $_POST['tag_1'];
+    $tag_2="";
+    if (isset($_POST['tag_2'])) $tag_2 = $_POST['tag_2'];
+    $tag_3="";
+    if (isset($_POST['tag_3'])) $tag_3 = $_POST['tag_3'];
     $votes = 0;
  
     // include db connect class
