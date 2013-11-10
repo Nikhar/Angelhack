@@ -20,7 +20,7 @@ if(isset($_GET['min_id']))
 	if(!isset($_GET['number_of_records']))
 		$_GET['number_of_records']=5;
 	$number_of_records=$_GET['number_of_records'];
-	$result = mysql_query("SELECT *FROM causes where id > $min_id limit $number_of_records") or die(mysql_error());
+	$result = mysql_query("SELECT *FROM causes order by votes desc limit $number_of_records offset $min_id") or die(mysql_error());
 
 	// check for empty result
 	if (mysql_num_rows($result) > 0) {
