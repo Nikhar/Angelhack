@@ -14,13 +14,16 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
 
 // get all products from products table
-if(isset($_GET['min_id']))
+if(isset($_GET['city']))
 {
-	$min_id=$_GET['min_id'];
+	$city=$_GET['city'];
+	if(!isset($_GET['min_id']))
+		$_GET['min_id']=-1;
 	if(!isset($_GET['number_of_records']))
-		$_GET['number_of_records']=12;
+		$_GET['number_of_records']=5;
 	$number_of_records=$_GET['number_of_records'];
-	$result = mysql_query("SELECT *FROM causes order by votes desc limit $number_of_records offset $min_id") or die(mysql_error());
+	$min_id=$_GET['min_id'];
+	$result = mysql_query("SELECT * FROM causes where city = '$city' and id > $min_id limit $number_of_records") or die(mysql_error());
 
 	// check for empty result
 	if (mysql_num_rows($result) > 0) {

@@ -11,12 +11,12 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
 
 // check for post data
-if (isset($_GET["title"])) {
+if (isset($_GET['id'])) {
 //	echo $_GET["title"];
-	$title = $_GET['title'];
+	$id = $_GET['id'];
 
 	// get a product from products table
-	$query = "SELECT *FROM causes WHERE title = '$title'";
+	$query = "SELECT *FROM causes WHERE id = '$id'";
 //	echo $query;
 	$result = mysql_query($query);
 //	echo $result;
